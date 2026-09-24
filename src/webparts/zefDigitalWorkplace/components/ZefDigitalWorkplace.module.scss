@@ -1,0 +1,14 @@
+@import '../../../styles/tokens';
+
+.zefDigitalWorkplace {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: clip;
+  box-sizing: border-box;
+  isolation: isolate;
+  background: $color-background;
+  color: $color-text-primary;
+}

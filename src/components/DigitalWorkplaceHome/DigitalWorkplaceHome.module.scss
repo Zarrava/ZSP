@@ -1,0 +1,135 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.home {
+  @include app-container;
+  font-family: $font-family-base;
+  color: $color-text-primary;
+  background: $color-background;
+  min-height: 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: clip;
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(7, 200, 248, 0.08) 0%, transparent 55%),
+      linear-gradient(180deg, $color-background 0%, $color-background-deep 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 $space-page-inline $space-page-block;
+  min-width: 0;
+}
+
+.pageLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax($rail-min-width, $rail-max-width);
+  gap: clamp(#{$space-4}, 2vw, #{$space-6});
+  align-items: start;
+  width: 100%;
+  min-width: 0;
+
+  @include tablet-down {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @include app-tablet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.mainColumn {
+  @include app-container(zef-main);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.sectionHero {
+  min-width: 0;
+  width: 100%;
+  padding-bottom: $space-2;
+}
+
+.sectionQuickAccess,
+.sectionWorkspace,
+.sectionInfoGrid,
+.sectionDepartments,
+.sectionResources,
+.sectionRail {
+  min-width: 0;
+  width: 100%;
+}
+
+@include phone-lg-down {
+  .mainColumn {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sectionQuickAccess { order: 2; }
+  .sectionInfoGrid { order: 3; }
+  .sectionWorkspace { order: 4; }
+  .sectionDepartments { order: 5; }
+  .sectionResources { order: 6; }
+  .sectionRail { order: 7; }
+}
+
+@include app-narrow {
+  .sectionQuickAccess { order: 2; }
+  .sectionInfoGrid { order: 3; }
+  .sectionWorkspace { order: 4; }
+  .sectionDepartments { order: 5; }
+  .sectionResources { order: 6; }
+  .sectionRail { order: 7; }
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $grid-gap-premium;
+  padding: $space-section 0;
+  min-width: 0;
+  width: 100%;
+
+  @container zef-main (min-width: 1024px) {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  }
+}
+
+.sectionRail {
+  @include tablet-down {
+    padding-top: $space-4;
+  }
+}

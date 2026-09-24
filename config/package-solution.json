@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "zef-digital-workplace-client-side-solution",
+    "id": "085ac811-6b60-4b52-ab2d-a1d706b87a06",
+    "version": "1.0.17.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.Read"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Calendars.Read"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Team.ReadBasic.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Files.Read"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Tasks.Read"
+      }
+    ],
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "ZEF Digital Workplace — modern organizational homepage for SharePoint"
+      },
+      "longDescription": {
+        "default": "Custom SharePoint Framework web part providing the ZEF Digital Workplace homepage with announcements, departments, resources, and Microsoft 365 workspace integration."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "zef-digital-workplace Feature",
+        "description": "The feature that activates elements of the zef-digital-workplace solution.",
+        "id": "bc5c549e-123d-48e5-8a66-03aef90f7ca9",
+        "version": "1.0.17.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/zef-digital-workplace.sppkg"
+  }
+}

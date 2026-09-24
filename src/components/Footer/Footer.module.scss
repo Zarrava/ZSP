@@ -1,0 +1,113 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.footer {
+  border-top: 1px solid $color-border;
+  background: rgba(14, 16, 36, 0.6);
+  padding: clamp(#{$space-6}, 3vw, #{$space-8}) 0 clamp(#{$space-8}, 4vw, #{$space-10});
+  margin-top: $space-4;
+  width: 100%;
+  min-width: 0;
+}
+
+.inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 $space-page-inline;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-4 $space-6;
+  min-width: 0;
+
+  @include phone-lg-down {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-4;
+  }
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  min-width: 0;
+}
+
+.logoMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-sm;
+  background: linear-gradient(135deg, $color-brand-cyan 0%, rgba(7, 200, 248, 0.5) 100%);
+  color: $color-text-on-brand;
+  font-size: 9px;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.brand {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.context {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-5;
+  margin-left: auto;
+  min-width: 0;
+
+  @include phone-lg-down {
+    margin-left: 0;
+  }
+}
+
+.link {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  text-decoration: none;
+  transition: color $transition-fast;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    color: $color-brand-cyan;
+  }
+
+  @include focus-visible;
+}
+
+.linkDisabled {
+  font-size: $font-size-xs;
+  color: $color-text-subtle;
+  opacity: 0.5;
+}
+
+.copyright {
+  width: 100%;
+  margin-top: $space-3;
+  padding-top: $space-5;
+  border-top: 1px solid $color-divider;
+  font-size: $font-size-xs;
+  color: $color-text-subtle;
+}

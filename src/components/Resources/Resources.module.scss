@@ -1,0 +1,126 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.resources {
+  padding: $space-section 0 clamp(#{$space-8}, 4vw, #{$space-10});
+  min-width: 0;
+  width: 100%;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(#{$space-6}, 3vw, #{$space-8});
+  min-width: 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  min-width: 0;
+}
+
+.groupTitle {
+  margin: 0;
+  @include section-label;
+  font-size: $font-size-xs;
+  color: $color-brand-cyan-soft;
+  padding-bottom: $space-2;
+  border-bottom: 1px solid $color-divider;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include premium-card-grid;
+
+  > li {
+    min-width: 0;
+    display: flex;
+  }
+}
+
+.card {
+  @include interactive-card;
+  @include card-padding-responsive;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(#{$space-3}, 2vw, #{$space-4});
+  min-height: $card-min-height-desktop;
+  min-width: 0;
+  width: 100%;
+  flex: 1;
+
+  @include app-main-narrow {
+    min-height: auto;
+  }
+}
+
+.cardStatic {
+  opacity: 0.55;
+  cursor: default;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: $color-border;
+  }
+}
+
+.resourceIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: $radius-md;
+  background: $color-brand-cyan-muted;
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: $font-size-lg;
+  color: $color-brand-cyan;
+}
+
+.resourceBody {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  min-width: 0;
+  flex: 1;
+  padding-right: $space-2;
+}
+
+.title {
+  @include card-title-text;
+}
+
+.description {
+  @include card-description-text;
+  color: $color-text-secondary;
+}
+
+.audience {
+  @include badge;
+  align-self: flex-start;
+  margin-top: $space-1;
+  background: rgba(255, 255, 255, 0.06);
+  color: $color-text-muted;
+}
+
+.externalIcon {
+  flex-shrink: 0;
+  font-size: $font-size-sm;
+  color: $color-text-subtle;
+  margin-top: $space-1;
+  transition: color $transition-fast;
+
+  .card:hover & {
+    color: $color-brand-cyan;
+  }
+}

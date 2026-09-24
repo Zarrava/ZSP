@@ -1,0 +1,149 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.announcements {
+  min-width: 0;
+}
+
+.panel {
+  @include dashboard-panel;
+  @include card-padding-responsive;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4;
+  border-radius: $radius-md;
+  border: 1px solid $color-border-subtle;
+  background: $color-surface-muted;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color $transition-base, background-color $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.2);
+    background: $color-surface-elevated;
+    box-shadow: $shadow-sm;
+  }
+
+  @include focus-visible;
+}
+
+.cardFeatured {
+  background: linear-gradient(135deg, rgba(7, 200, 248, 0.1) 0%, $color-surface 100%);
+  border-color: rgba(7, 200, 248, 0.22);
+  padding: $space-6;
+  position: relative;
+
+  &::before {
+    content: 'Featured';
+    position: absolute;
+    top: $space-4;
+    right: $space-4;
+    @include section-label;
+    font-size: 9px;
+    color: $color-brand-cyan;
+    opacity: 0.8;
+  }
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.35);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.category {
+  @include badge;
+  background: $color-brand-cyan-muted;
+  color: $color-brand-cyan-soft;
+}
+
+.priority {
+  @include badge;
+}
+
+.priorityUrgent {
+  background: $color-priority-urgent-bg;
+  color: $color-priority-urgent;
+}
+
+.priorityImportant {
+  background: $color-priority-important-bg;
+  color: $color-priority-important;
+}
+
+.priorityNormal {
+  background: $color-priority-normal-bg;
+  color: $color-text-muted;
+}
+
+.cardTitle {
+  margin: 0;
+  @include card-title-text;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.cardFeatured .cardTitle {
+  font-size: $font-size-lg;
+  padding-right: $space-10;
+}
+
+.cardSummary {
+  margin: 0;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.metaIcon {
+  font-size: $font-size-xs;
+  color: $color-brand-cyan-soft;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: $space-1;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-brand-cyan;
+}

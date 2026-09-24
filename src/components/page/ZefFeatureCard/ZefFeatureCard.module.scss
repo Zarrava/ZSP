@@ -1,0 +1,46 @@
+@import '../../../styles/tokens';
+@import '../../../styles/mixins';
+
+.card {
+  @include interactive-card;
+  @include card-padding-responsive;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  min-width: 0;
+  min-height: $card-min-height-desktop;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $radius-md;
+  background: $color-brand-cyan-muted;
+  color: $color-brand-cyan;
+}
+
+.title {
+  margin: 0;
+  @include card-title-text;
+}
+
+.description {
+  margin: 0;
+  @include card-description-text;
+  color: $color-text-secondary;
+}
+
+.list {
+  margin: 0;
+  padding-left: $space-5;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+}
+
+.listItem {
+  margin-bottom: $space-1;
+}

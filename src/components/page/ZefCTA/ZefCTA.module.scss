@@ -1,0 +1,63 @@
+@import '../../../styles/tokens';
+@import '../../../styles/mixins';
+
+.cta {
+  @include dashboard-panel;
+  padding: clamp(#{$space-6}, 3vw, #{$space-8});
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $space-5;
+  border-color: rgba(7, 200, 248, 0.2);
+  background: linear-gradient(135deg, rgba(7, 200, 248, 0.08) 0%, $color-surface 100%);
+
+  @container zef-main (min-width: #{$breakpoint-grid-two-col}) {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+  }
+}
+
+.copy {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 $space-2;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include natural-text-wrap;
+}
+
+.description {
+  margin: 0;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  @include natural-text-wrap;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  min-width: 0;
+}
+
+.link {
+  @include interactive-card;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-height: 44px;
+  padding: $space-4 $space-5;
+}
+
+.linkLabel {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.linkDescription {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}

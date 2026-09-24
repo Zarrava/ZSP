@@ -1,0 +1,60 @@
+@import '../../../styles/tokens';
+@import '../../../styles/mixins';
+
+.shell {
+  @include app-container;
+  font-family: $font-family-base;
+  color: $color-text-primary;
+  background: $color-background;
+  min-height: 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: clip;
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(7, 200, 248, 0.08) 0%, transparent 55%),
+      linear-gradient(180deg, $color-background 0%, $color-background-deep 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 $space-page-inline $space-page-block;
+  min-width: 0;
+}
+
+.content {
+  @include app-container(zef-main);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}

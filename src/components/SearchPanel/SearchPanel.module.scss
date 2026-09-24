@@ -1,0 +1,91 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.panel {
+  position: absolute;
+  top: calc(100% + #{$space-2});
+  left: 0;
+  right: 0;
+  z-index: 200;
+  @include dashboard-panel;
+  box-shadow: $shadow-card-hover, $glow-cyan;
+  max-height: 380px;
+  overflow: auto;
+  border-color: rgba(7, 200, 248, 0.2);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: $space-2;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color $transition-fast, border-color $transition-fast;
+  border: 1px solid transparent;
+
+  &:hover,
+  &:focus-visible {
+    background: $color-brand-cyan-subtle;
+    border-color: rgba(7, 200, 248, 0.15);
+  }
+
+  @include focus-visible;
+}
+
+.itemStatic {
+  cursor: default;
+
+  &:hover {
+    background: transparent;
+    border-color: transparent;
+  }
+}
+
+.type {
+  display: block;
+  @include section-label;
+  font-size: 9px;
+  margin-bottom: $space-1;
+  color: $color-brand-cyan;
+}
+
+.title {
+  display: block;
+  @include card-title-text;
+  font-size: $font-size-card-title-tablet;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 2px;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  line-height: $line-height-snug;
+}
+
+.empty,
+.hint {
+  margin: 0;
+  padding: $space-4 $space-5;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+}
+
+.hint {
+  padding-top: $space-3;
+  padding-bottom: $space-3;
+  font-size: $font-size-xs;
+  color: $color-text-subtle;
+}

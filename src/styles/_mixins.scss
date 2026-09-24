@@ -1,0 +1,325 @@
+@import './tokens';
+
+@mixin phone-sm {
+  @media (max-width: $breakpoint-phone-sm-max) {
+    @content;
+  }
+}
+
+@mixin phone-lg {
+  @media (min-width: 480px) and (max-width: $breakpoint-phone-lg-max) {
+    @content;
+  }
+}
+
+@mixin phone-lg-down {
+  @media (max-width: $breakpoint-phone-lg-max) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1024px) and (max-width: $breakpoint-laptop-max) {
+    @content;
+  }
+}
+
+@mixin laptop-up {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media (min-width: 1280px) and (max-width: $breakpoint-desktop-max) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin app-container($name: zef-app) {
+  container-type: inline-size;
+  container-name: $name;
+}
+
+@mixin app-narrow {
+  @container zef-app (max-width: #{$breakpoint-phone-lg-max}) {
+    @content;
+  }
+}
+
+@mixin app-tablet {
+  @container zef-app (max-width: #{$breakpoint-tablet-max}) {
+    @content;
+  }
+}
+
+@mixin app-main-wide {
+  @container zef-main (min-width: #{$breakpoint-grid-three-col}) {
+    @content;
+  }
+}
+
+@mixin app-main-medium {
+  @container zef-main (min-width: #{$breakpoint-grid-two-col}) and (max-width: #{($breakpoint-grid-three-col - 1px)}) {
+    @content;
+  }
+}
+
+@mixin app-main-narrow {
+  @container zef-main (max-width: #{($breakpoint-grid-two-col - 1px)}) {
+    @content;
+  }
+}
+
+// Premium card grid: 3 / 2 / 1 columns based on main content width (not viewport)
+@mixin premium-card-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $grid-gap-premium;
+  min-width: 0;
+  width: 100%;
+
+  @container zef-main (min-width: #{$breakpoint-grid-two-col}) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @container zef-main (min-width: #{$breakpoint-grid-three-col}) {
+    grid-template-columns: repeat(#{$grid-max-columns-desktop}, minmax(0, 1fr));
+  }
+}
+
+@mixin natural-text-wrap {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+@mixin card-title-text {
+  @include natural-text-wrap;
+  font-size: $font-size-card-title;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  line-height: $line-height-card-body;
+}
+
+@mixin card-description-text {
+  @include natural-text-wrap;
+  font-size: $font-size-card-description;
+  color: $color-text-muted;
+  line-height: $line-height-card-body;
+}
+
+@mixin card-padding-responsive {
+  padding: $card-padding-mobile;
+
+  @container zef-main (min-width: #{$breakpoint-grid-two-col}) {
+    padding: $card-padding-tablet;
+  }
+
+  @container zef-main (min-width: #{$breakpoint-grid-three-col}) {
+    padding: $card-padding-desktop;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $color-focus-ring;
+    outline-offset: 2px;
+  }
+}
+
+@mixin section-heading {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
+  line-height: $line-height-tight;
+}
+
+@mixin section-label {
+  margin: 0;
+  font-size: $font-size-2xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-label;
+  text-transform: uppercase;
+  color: $color-brand-cyan-soft;
+}
+
+@mixin dashboard-panel {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  backdrop-filter: blur(12px);
+}
+
+@mixin interactive-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color $transition-base,
+    box-shadow $transition-base,
+    transform $transition-base,
+    background-color $transition-base;
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.25);
+    background: $color-surface-elevated;
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-2px);
+  }
+
+  @include reduced-motion {
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  @include focus-visible;
+}
+
+@mixin chevron {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: $color-brand-cyan-soft;
+  font-size: $font-size-sm;
+  transition: transform $transition-fast, color $transition-fast;
+}
+
+@mixin interactive-row {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color $transition-fast;
+
+  @include focus-visible;
+}
+
+@mixin badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-2;
+  border-radius: $radius-full;
+  font-size: $font-size-2xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+@mixin skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: zef-shimmer 1.4s ease-in-out infinite;
+  border-radius: $radius-sm;
+
+  @include reduced-motion {
+    animation: none;
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+@mixin cyan-accent-line {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, $color-brand-cyan 0%, transparent 100%);
+    border-radius: $radius-full;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  @include reduced-motion {
+    &::before {
+      transition: none;
+    }
+  }
+}
+
+@keyframes zef-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes zef-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin section-reveal {
+  animation: zef-fade-up 0.4s ease-out both;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}

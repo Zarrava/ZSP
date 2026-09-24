@@ -1,0 +1,363 @@
+@import '../../../styles/tokens';
+@import '../../../styles/mixins';
+
+.shell {
+  width: 100%;
+  background: $color-brand-primary;
+  border-bottom: 1px solid $color-border;
+  min-height: 64px;
+
+  @include tablet-down {
+    min-height: 56px;
+  }
+}
+
+.nav {
+  width: 100%;
+}
+
+.inner {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 4.5rem);
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto);
+  align-items: center;
+  gap: clamp(#{$space-3}, 3vw, #{$space-6});
+
+  @include tablet-down {
+    min-height: 56px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'brand actions'
+      'mobile mobile';
+    padding-top: $space-2;
+    padding-bottom: $space-2;
+  }
+}
+
+.brandSection {
+  flex-shrink: 0;
+  min-width: 0;
+
+  @include tablet-down {
+    grid-area: brand;
+  }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  color: $color-text-primary;
+  text-decoration: none;
+  flex-shrink: 0;
+  min-width: 0;
+  min-height: 44px;
+  transition: opacity 180ms ease;
+
+  &:hover {
+    color: $color-text-primary;
+    text-decoration: none;
+    opacity: 0.92;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-focus-ring;
+    outline-offset: 3px;
+    border-radius: $radius-sm;
+  }
+}
+
+.logoMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $color-brand-cyan 0%, rgba(7, 200, 248, 0.55) 100%);
+  color: $color-text-on-brand;
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-size: clamp(#{$font-size-sm}, 1.6vw, #{$font-size-md});
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-tight;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(28vw, 360px);
+
+  @include tablet-down {
+    max-width: calc(100vw - 11rem);
+  }
+}
+
+.navSection {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+
+  @include tablet-down {
+    display: none;
+  }
+}
+
+.actionsSection {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $space-2;
+  min-width: 0;
+
+  @include tablet-down {
+    grid-area: actions;
+  }
+}
+
+.userArea {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  min-height: 44px;
+  padding: $space-1 $space-2 $space-1 $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 180ms ease, background-color 180ms ease;
+  max-width: min(240px, 28vw);
+
+  @include tablet-down {
+    max-width: none;
+    padding: $space-1;
+  }
+}
+
+.avatar,
+.avatarImage {
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+  border: 2px solid rgba(7, 200, 248, 0.2);
+}
+
+.avatar {
+  background: linear-gradient(135deg, $color-brand-cyan-muted 0%, rgba(7, 200, 248, 0.2) 100%);
+  color: $color-brand-cyan;
+  font-size: 11px;
+  font-weight: $font-weight-bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarImage {
+  object-fit: cover;
+}
+
+.userMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+
+  @include tablet-down {
+    display: none;
+  }
+}
+
+.userName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.userEmail {
+  font-size: $font-size-2xs;
+  color: $color-text-muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.menuToggle {
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.04);
+  color: $color-text-primary;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0 $space-3;
+  transition: border-color 180ms ease, background-color 180ms ease;
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.35);
+    background: rgba(7, 200, 248, 0.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-focus-ring;
+    outline-offset: 2px;
+  }
+
+  @include tablet-down {
+    display: inline-flex;
+  }
+}
+
+.menuToggleLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.menuToggleIcon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 18px;
+
+  span {
+    display: block;
+    height: 2px;
+    border-radius: 999px;
+    background: $color-brand-cyan;
+  }
+}
+
+.mobilePanel {
+  display: none;
+
+  @include tablet-down {
+    display: none;
+    padding: 0 clamp(1rem, 4vw, 4.5rem) $space-3;
+  }
+}
+
+.mobilePanelOpen {
+  @include tablet-down {
+    display: block;
+  }
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 $space-3;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(#{$space-1}, 1.2vw, #{$space-3});
+  flex-wrap: nowrap;
+
+  @include tablet-down {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $space-1;
+    background: $color-brand-primary-deep;
+    border: 1px solid $color-border-strong;
+    border-radius: $radius-lg;
+    padding: $space-2;
+  }
+}
+
+.linkItem {
+  margin: 0;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 clamp(#{$space-2}, 1.4vw, #{$space-4});
+  border-radius: $radius-md;
+  color: $color-text-secondary;
+  text-decoration: none;
+  font-size: clamp(#{$font-size-xs}, 1.15vw, #{$font-size-sm});
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+  transition: color 180ms ease, background-color 180ms ease;
+
+  &:hover {
+    color: $color-text-primary;
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-focus-ring;
+    outline-offset: 2px;
+  }
+
+  @include tablet-down {
+    width: 100%;
+    justify-content: flex-start;
+    white-space: normal;
+  }
+}
+
+.linkActive {
+  color: $color-text-primary;
+  background: rgba(7, 200, 248, 0.1);
+}
+
+.linkText {
+  @include natural-text-wrap;
+
+  @include laptop-up {
+    white-space: nowrap;
+  }
+}
+
+.activeIndicator {
+  position: absolute;
+  left: clamp(#{$space-2}, 1.4vw, #{$space-4});
+  right: clamp(#{$space-2}, 1.4vw, #{$space-4});
+  bottom: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: $color-brand-cyan;
+
+  @include tablet-down {
+    left: $space-2;
+    right: auto;
+    width: 3px;
+    top: 8px;
+    bottom: 8px;
+    height: auto;
+  }
+}

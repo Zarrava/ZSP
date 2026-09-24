@@ -1,0 +1,142 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.upcomingEvents {
+  min-width: 0;
+}
+
+.panel {
+  @include dashboard-panel;
+  @include card-padding-responsive;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  border-top: 1px solid $color-divider;
+  padding-top: $space-3;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(#{$space-3}, 2vw, #{$space-4});
+  flex-wrap: wrap;
+  min-width: 0;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  border: 1px solid $color-border-subtle;
+  background: $color-surface-muted;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color $transition-base, background-color $transition-base;
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.2);
+    background: $color-surface-elevated;
+
+    .chevron {
+      color: $color-brand-cyan;
+      transform: translateX(3px);
+    }
+  }
+
+  @include focus-visible;
+}
+
+.cardPrimary {
+  padding: $space-5;
+  background: linear-gradient(135deg, rgba(7, 200, 248, 0.08) 0%, $color-surface 100%);
+  border-color: rgba(7, 200, 248, 0.2);
+}
+
+.dateBlock {
+  flex-shrink: 0;
+  width: 56px;
+  text-align: center;
+  line-height: 1.05;
+  padding: $space-2;
+  border-radius: $radius-md;
+  background: rgba(7, 200, 248, 0.08);
+  border: 1px solid rgba(7, 200, 248, 0.15);
+}
+
+.dateDay {
+  display: block;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.dateMonth {
+  display: block;
+  font-size: $font-size-2xs;
+  font-weight: $font-weight-bold;
+  color: $color-brand-cyan;
+  letter-spacing: 0.08em;
+}
+
+.dateWeekday {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  text-transform: uppercase;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 0;
+  flex: 1;
+}
+
+.title {
+  margin: 0;
+  @include card-title-text;
+  font-size: $font-size-card-title-tablet;
+}
+
+.cardPrimary .title {
+  font-size: $font-size-base;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  line-height: $line-height-snug;
+}
+
+.metaIcon {
+  font-size: $font-size-xs;
+  flex-shrink: 0;
+  color: $color-brand-cyan-soft;
+}
+
+.chevron {
+  @include chevron;
+
+  @include reduced-motion {
+    .card:hover & {
+      transform: none;
+    }
+  }
+}

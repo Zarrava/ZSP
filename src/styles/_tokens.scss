@@ -1,0 +1,161 @@
+// ZEF Digital Workplace — Premium Dark Design System
+// Primary: #17193A | Accent: #07C8F8
+
+// Brand
+$color-brand-primary: #17193a;
+$color-brand-primary-deep: #12142e;
+$color-brand-primary-hover: #1e2148;
+$color-brand-primary-light: #222652;
+$color-brand-cyan: #07c8f8;
+$color-brand-cyan-soft: rgba(7, 200, 248, 0.65);
+$color-brand-cyan-muted: rgba(7, 200, 248, 0.12);
+$color-brand-cyan-subtle: rgba(7, 200, 248, 0.08);
+$color-brand-cyan-glow: rgba(7, 200, 248, 0.18);
+$color-brand-gradient-start: #17193a;
+$color-brand-gradient-end: #0f1128;
+
+// Priority accents (semantic only)
+$color-priority-urgent: #f87171;
+$color-priority-urgent-bg: rgba(248, 113, 113, 0.12);
+$color-priority-important: #fbbf24;
+$color-priority-important-bg: rgba(251, 191, 36, 0.12);
+$color-priority-normal-bg: rgba(255, 255, 255, 0.06);
+
+// Surfaces — dark navy environment
+$color-white: #ffffff;
+$color-background: #17193a;
+$color-background-subtle: #141632;
+$color-background-deep: #0e1024;
+$color-surface: rgba(255, 255, 255, 0.04);
+$color-surface-elevated: rgba(255, 255, 255, 0.06);
+$color-surface-hover: rgba(7, 200, 248, 0.08);
+$color-surface-muted: rgba(255, 255, 255, 0.03);
+$color-surface-inset: rgba(0, 0, 0, 0.2);
+
+// Borders
+$color-border: rgba(255, 255, 255, 0.08);
+$color-border-strong: rgba(255, 255, 255, 0.14);
+$color-border-subtle: rgba(255, 255, 255, 0.05);
+$color-divider: rgba(255, 255, 255, 0.06);
+
+// Text
+$color-text-primary: #f4f6fb;
+$color-text-secondary: #a8b0c8;
+$color-text-muted: #7a849e;
+$color-text-subtle: #5c6478;
+$color-text-on-brand: #17193a;
+$color-text-link: #07c8f8;
+
+// Semantic
+$color-focus-ring: #07c8f8;
+$color-error: #f87171;
+$color-error-bg: rgba(248, 113, 113, 0.1);
+$color-hover-bg: rgba(7, 200, 248, 0.08);
+$color-active-bg: rgba(7, 200, 248, 0.14);
+
+// Typography
+$font-family-base: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-size-2xs: 0.6875rem;
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.8125rem;
+$font-size-base: 0.9375rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;
+$font-size-display: 2.75rem;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.12;
+$line-height-snug: 1.35;
+$line-height-base: 1.55;
+$line-height-relaxed: 1.65;
+
+$letter-spacing-tight: -0.03em;
+$letter-spacing-label: 0.12em;
+
+// Spacing scale
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-7: 1.75rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+
+// Radius
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-xl: 20px;
+$radius-full: 9999px;
+
+// Shadows & glow
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+$shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+$shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(7, 200, 248, 0.12);
+$shadow-header: 0 1px 0 $color-border-subtle, 0 4px 24px rgba(0, 0, 0, 0.35);
+$glow-cyan: 0 0 60px rgba(7, 200, 248, 0.12);
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 200ms ease;
+$transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+// Layout
+$container-max-width: none;
+$header-height: 64px;
+$header-height-compact: 56px;
+$rail-min-width: 280px;
+$rail-max-width: 340px;
+
+// Breakpoints (mobile-first ranges)
+$breakpoint-phone-sm-max: 479px;
+$breakpoint-phone-lg-max: 767px;
+$breakpoint-tablet-max: 1023px;
+$breakpoint-laptop-max: 1279px;
+$breakpoint-desktop-max: 1599px;
+
+// Legacy aliases used by existing mixins
+$breakpoint-mobile: $breakpoint-phone-lg-max;
+$breakpoint-tablet: $breakpoint-tablet-max;
+$breakpoint-desktop: 1024px;
+
+// Grid density — premium layouts cap columns for breathing room
+$breakpoint-grid-three-col: 1200px;
+$breakpoint-grid-two-col: 768px;
+$grid-max-columns-desktop: 3;
+$grid-gap-premium: clamp(1rem, 1.75vw, 1.5rem);
+$grid-gap-comfortable: clamp(0.875rem, 1.5vw, 1.25rem);
+
+// Page / section horizontal breathing room (container-relative via clamp)
+$space-page-inline: clamp(1rem, 4vw, 4.5rem);
+$space-page-block: clamp(1.75rem, 3.5vw, 3rem);
+$space-section: clamp(1.75rem, 2.75vw, 2.5rem);
+
+// Card padding tiers
+$card-padding-desktop: clamp(1.375rem, 2vw, 1.75rem);
+$card-padding-tablet: clamp(1.25rem, 2.25vw, 1.5rem);
+$card-padding-mobile: clamp(1.125rem, 3vw, 1.25rem);
+$card-min-height-desktop: clamp(9.375rem, 10vw, 10.625rem);
+
+// Card typography — readable, not shrunk to fit
+$font-size-card-title: clamp(1rem, 0.35vw + 0.92rem, 1.25rem);
+$font-size-card-title-tablet: clamp(1.0625rem, 0.3vw + 0.95rem, 1.1875rem);
+$font-size-card-description: clamp(0.9375rem, 0.2vw + 0.88rem, 1rem);
+$line-height-card-body: 1.45;
+
+// Fluid type scale
+$font-size-headline: clamp(1.75rem, 2.5vw + 1rem, 2.75rem);
+$font-size-headline-accent: clamp(1.75rem, 2.5vw + 1rem, 2.75rem);
+$font-size-metric-featured: clamp(1.75rem, 2vw + 1rem, 2.5rem);

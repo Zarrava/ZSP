@@ -1,0 +1,128 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.quickAccess {
+  padding: $space-section 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include premium-card-grid;
+
+  > li {
+    min-width: 0;
+    display: flex;
+  }
+}
+
+.item {
+  @include interactive-card;
+  @include cyan-accent-line;
+  @include card-padding-responsive;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(#{$space-4}, 2vw, #{$space-5});
+  min-height: $card-min-height-desktop;
+  min-width: 0;
+  width: 100%;
+  flex: 1;
+
+  @include app-main-narrow {
+    min-height: auto;
+  }
+}
+
+.itemStatic {
+  opacity: 0.55;
+  cursor: default;
+
+  &:hover {
+    border-color: $color-border;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .arrow {
+    opacity: 0.3;
+  }
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: $radius-md;
+  flex-shrink: 0;
+  background: $color-brand-cyan-muted;
+  color: $color-brand-cyan;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  .item:hover & {
+    transform: scale(1.05);
+    box-shadow: 0 0 16px rgba(7, 200, 248, 0.2);
+  }
+
+  @include reduced-motion {
+    .item:hover & {
+      transform: none;
+    }
+  }
+}
+
+.accentTeams,
+.accentDocuments,
+.accentCalendar,
+.accentForms,
+.accentSharePoint {
+  background: $color-brand-cyan-muted;
+  color: $color-brand-cyan;
+}
+
+.icon {
+  font-size: $font-size-xl;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  min-width: 0;
+  flex: 1 1 auto;
+  padding-right: $space-2;
+}
+
+.title {
+  @include card-title-text;
+}
+
+.description {
+  @include card-description-text;
+}
+
+.arrow {
+  @include chevron;
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: $space-2;
+  font-size: $font-size-md;
+
+  .item:hover & {
+    color: $color-brand-cyan;
+    transform: translateX(4px);
+  }
+
+  @include reduced-motion {
+    .item:hover & {
+      transform: none;
+    }
+  }
+}

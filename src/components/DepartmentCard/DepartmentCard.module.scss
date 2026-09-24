@@ -1,0 +1,136 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.card {
+  @include interactive-card;
+  @include card-padding-responsive;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $space-5;
+  min-height: $card-min-height-desktop;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include app-main-narrow {
+    min-height: auto;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $color-brand-cyan, transparent);
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  @include reduced-motion {
+    &::after {
+      transition: none;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-4;
+  min-width: 0;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: $radius-md;
+  background: rgba(7, 200, 248, 0.1);
+  border: 1px solid rgba(7, 200, 248, 0.15);
+  flex-shrink: 0;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  .card:hover & {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(7, 200, 248, 0.15);
+  }
+
+  @include reduced-motion {
+    .card:hover & {
+      transform: none;
+    }
+  }
+}
+
+.deptIcon {
+  font-size: $font-size-xl;
+  color: $color-brand-cyan;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  min-width: 0;
+  flex: 1;
+}
+
+.name {
+  margin: 0;
+  @include card-title-text;
+}
+
+.description {
+  margin: 0;
+  @include card-description-text;
+  color: $color-text-secondary;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  margin-top: auto;
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-3;
+  min-height: 44px;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.03);
+  color: $color-text-secondary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  transition: border-color $transition-fast, color $transition-fast, background-color $transition-fast;
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.35);
+    color: $color-brand-cyan;
+    background: $color-brand-cyan-subtle;
+  }
+
+  @include focus-visible;
+}
+
+.actionTeams:hover {
+  border-color: rgba(7, 200, 248, 0.35);
+  color: $color-brand-cyan;
+  background: $color-brand-cyan-subtle;
+}

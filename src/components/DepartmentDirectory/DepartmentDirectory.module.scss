@@ -1,0 +1,21 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.directory {
+  padding: $space-section 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include premium-card-grid;
+  gap: $grid-gap-comfortable;
+
+  > li {
+    min-width: 0;
+    display: flex;
+  }
+}

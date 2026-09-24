@@ -1,0 +1,80 @@
+@import '../../../styles/tokens';
+@import '../../../styles/mixins';
+
+.editorialGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $grid-gap-premium;
+  padding: $space-section 0;
+  min-width: 0;
+
+  @container zef-app (min-width: #{$breakpoint-grid-two-col}) {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: start;
+  }
+}
+
+.featuredCard {
+  @include interactive-card;
+  @include card-padding-responsive;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  min-width: 0;
+  border-color: rgba(7, 200, 248, 0.2);
+  background: linear-gradient(135deg, rgba(7, 200, 248, 0.08) 0%, $color-surface 100%);
+}
+
+.featuredCategory {
+  @include section-label;
+  font-size: 10px;
+}
+
+.featuredTitle {
+  margin: 0;
+  font-size: clamp(#{$font-size-lg}, 2vw, #{$font-size-2xl});
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include natural-text-wrap;
+}
+
+.featuredSummary {
+  margin: 0;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  @include natural-text-wrap;
+}
+
+.featuredMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.activityList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: $space-3;
+}
+
+.activityItem {
+  @include interactive-card;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4 $space-5;
+  min-height: 44px;
+}
+
+.activityTitle {
+  @include card-title-text;
+}
+
+.activityMeta {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}

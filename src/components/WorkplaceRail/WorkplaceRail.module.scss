@@ -1,0 +1,190 @@
+@import '../../styles/tokens';
+@import '../../styles/mixins';
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(#{$space-4}, 2vw, #{$space-5});
+  min-width: 0;
+  width: 100%;
+  max-width: $rail-max-width;
+
+  @include tablet-down {
+    max-width: none;
+  }
+
+  @include app-tablet {
+    max-width: none;
+  }
+}
+
+.panel {
+  @include dashboard-panel;
+  @include card-padding-responsive;
+  min-width: 0;
+  width: 100%;
+}
+
+.panelTitle {
+  margin: 0 0 $space-4;
+  @include section-label;
+  color: $color-brand-cyan;
+}
+
+.clockList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.clockCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  border: 1px solid $color-border-subtle;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color $transition-base, background-color $transition-base;
+  min-width: 0;
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.2);
+    background: $color-brand-cyan-subtle;
+  }
+
+  @include reduced-motion {
+    transition: border-color $transition-base, background-color $transition-base;
+  }
+}
+
+.clockCity {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  letter-spacing: 0.02em;
+}
+
+.clockTimeRow {
+  display: flex;
+  align-items: baseline;
+  gap: $space-2;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.clockTime {
+  font-size: clamp(#{$font-size-lg}, 2vw, #{$font-size-xl});
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
+  line-height: 1;
+}
+
+.clockPeriod {
+  font-size: $font-size-2xs;
+  font-weight: $font-weight-semibold;
+  color: $color-brand-cyan-soft;
+  letter-spacing: 0.06em;
+}
+
+.clockOffset {
+  font-size: 10px;
+  color: $color-text-subtle;
+  letter-spacing: 0.04em;
+}
+
+.eventCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4;
+  border-radius: $radius-md;
+  border: 1px solid rgba(7, 200, 248, 0.18);
+  background: linear-gradient(135deg, rgba(7, 200, 248, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color $transition-base, box-shadow $transition-base;
+  min-width: 0;
+
+  &:hover {
+    border-color: rgba(7, 200, 248, 0.35);
+    box-shadow: $glow-cyan;
+  }
+
+  @include focus-visible;
+}
+
+.eventEyebrow {
+  @include section-label;
+  font-size: 9px;
+  color: $color-brand-cyan;
+}
+
+.eventTitle {
+  margin: 0;
+  @include card-title-text;
+  font-size: $font-size-card-title-tablet;
+}
+
+.eventMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-1;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.eventMetaIcon {
+  font-size: $font-size-xs;
+  color: $color-brand-cyan-soft;
+}
+
+.eventMetaDivider {
+  opacity: 0.5;
+}
+
+.eventAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: $space-1;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-brand-cyan;
+  min-height: 44px;
+}
+
+.eventEmpty {
+  margin: 0;
+  padding: $space-4;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+  border-radius: $radius-md;
+  border: 1px dashed $color-border;
+  background: $color-surface-muted;
+}
+
+.eventSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-2 0;
+}
+
+.skeletonBar {
+  height: 14px;
+  width: 80%;
+  @include skeleton-shimmer;
+}
+
+.skeletonBarShort {
+  height: 12px;
+  width: 55%;
+  @include skeleton-shimmer;
+}

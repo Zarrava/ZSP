@@ -1,0 +1,7 @@
+@import '../../../styles/tokens';
+@import '../../../styles/mixins';
+
+.grid {
+  @include app-container(zef-main);
+  @include premium-card-grid;
+}

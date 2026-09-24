@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-extension-manifest.schema.json",
+  "id": "f4e8c2a1-9b3d-4e7f-8c6a-5d2e1f0a9b8c",
+  "alias": "ZefSiteNavigationApplicationCustomizer",
+  "componentType": "Extension",
+  "extensionType": "ApplicationCustomizer",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "safeWithCustomScriptDisabled": true,
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Advanced" },
+    "title": { "default": "ZEF Site Navigation" },
+    "description": { "default": "Premium ZEF site navigation for the Digital Workplace experience." },
+    "officeFabricIconFontName": "Nav2DMapView",
+    "properties": {}
+  }]
+}

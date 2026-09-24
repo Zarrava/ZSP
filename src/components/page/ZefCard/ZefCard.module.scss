@@ -1,0 +1,26 @@
+@import '../../../styles/tokens';
+@import '../../../styles/mixins';
+
+.card {
+  @include dashboard-panel;
+  @include card-padding-responsive;
+  min-width: 0;
+  height: 100%;
+}
+
+.title {
+  margin: 0 0 $space-3;
+  @include card-title-text;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  @include card-description-text;
+  color: $color-text-secondary;
+
+  p {
+    margin: 0;
+  }
+}
